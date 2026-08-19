@@ -744,7 +744,7 @@
         </div>
         <p class="who-us">A Oral Centter é uma rede de clínicas odontológicas com mais de 130 unidades pelo país. Nascemos pra dar ao dentista o que faltou na nossa própria história como franqueada: marca forte, processos que funcionam e gente do seu lado — pra você não descobrir tudo sozinho, no erro.</p>
         <div class="cta-row">
-          <a class="btn" href="https://wa.me/5538999529084" target="_blank" rel="noopener">Falar com um consultor de carreira →</a>
+          <button class="btn" onclick="contactWhatsApp()">Falar com um consultor de carreira →</button>
         </div>
         <p class="foot">Conversa de 15 min com um consultor de carreira, sem compromisso. Você descobre se tem o perfil pra faturar 6 dígitos com a OC.</p>
       </div>
@@ -754,7 +754,7 @@
   <script>
     const QUESTIONS = [
       {k:"atua", t:"Como você trabalha hoje?", type:"opt", options:[
-        {label:"Sou CLT"},{label:"Sou autônomo (alugo cadeira ou consultório)"},
+        {label:"Sou CLT ou faço plantões"},{label:"Sou autônomo (alugo cadeira ou consultório)"},
         {label:"Já tenho consultório próprio"},{label:"Recém-formado, ainda buscando direção"}]},
       {k:"fat", t:"Quanto a sua clínica fatura por mês, na média?", type:"opt", options:[
         {label:"Até R$10 mil", v:6},{label:"R$10 mil a R$30 mil", v:20},
@@ -979,6 +979,15 @@
     window.prev = prev;
     window.capture = capture;
     window.maskPhone = maskPhone;
+
+    function contactWhatsApp() {
+      if (typeof fbq !== 'undefined' && typeof PIXEL !== 'undefined' && PIXEL && PIXEL !== 'SEU_PIXEL_AQUI') {
+        fbq('track', 'Contact');
+      }
+      window.open('https://wa.me/5538999529084', '_blank');
+    }
+
+    window.contactWhatsApp = contactWhatsApp;
   </script>
 
 </body>
